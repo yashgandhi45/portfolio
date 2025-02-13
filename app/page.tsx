@@ -226,79 +226,72 @@ export default function Home() {
         </motion.section>
 
         <section id="skills" className="py-20 px-4 md:px-20">
-          <h2 className="text-4xl font-bold mb-10 text-center">About & Skills</h2>
-          <div className="bento-grid max-w-6xl mx-auto">
-            <motion.div
-              className="bento-item col-span-2"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">About Me</h3>
-              <p className="text-gray-300">
-                A passionate developer with a love for clean code and innovative solutions.
-                I specialize in building scalable web applications and have worked with
-                Fortune 500 companies to deliver high-impact software solutions.
-                When I'm not coding, you'll find me contributing to open-source projects
-                and mentoring aspiring developers.
-              </p>
-            </motion.div>
-            <motion.div
-              className="bento-item"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Tech Stack</h3>
-              <div className="grid grid-cols-3 gap-4">
-                <FaReact className="tech-stack-item text-3xl text-blue-400" />
-                <SiNextdotjs className="tech-stack-item text-3xl text-white" />
-                <SiTypescript className="tech-stack-item text-3xl text-blue-500" />
-                <FaNode className="tech-stack-item text-3xl text-green-500" />
-                <FaPython className="tech-stack-item text-3xl text-yellow-500" />
-                <SiTailwindcss className="tech-stack-item text-3xl text-cyan-400" />
-              </div>
-            </motion.div>
-            <motion.div
-              className="bento-item"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Contact</h3>
-              <button
-                onClick={copyEmail}
-                className="copy-button flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-              >
-                <FaCopy />
-                {isCopied ? 'Copied!' : 'Copy Email'}
-              </button>
-              <p className="mt-2 text-sm text-gray-400">john.anderson@example.com</p>
-            </motion.div>
-            <motion.div
-              className="bento-item"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Experience</h3>
-              <div className="space-y-2">
-                <p className="text-sm">
-                  <span className="text-cyan-400">8+</span> Years Experience
-                </p>
-                <p className="text-sm">
-                  <span className="text-pink-400">50+</span> Projects Completed
-                </p>
-                <p className="text-sm">
-                  <span className="text-purple-400">30+</span> Happy Clients
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              className="bento-item"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Achievements</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>🏆 AWS Certified Solutions Architect</li>
-                <li>🎓 MS in Computer Science</li>
-                <li>⭐ Top 1% Stack Overflow</li>
-              </ul>
-            </motion.div>
-          </div>
-        </section>
+  <h2 className="text-4xl font-bold mb-10 text-center">About & Skills</h2>
+  <div
+    className="bento-grid max-w-6xl mx-auto grid grid-cols-6 gap-6"
+    style={{ gridAutoRows: 'minmax(150px, auto)' }}
+  >
+    {/* Large Item */}
+    <motion.div
+      className="bento-item bg-gray-800 col-span-6 md:col-span-4 md:row-span-2 p-6 rounded-lg shadow-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h3 className="text-2xl font-semibold mb-4">About Me</h3>
+      <p className="text-gray-300">
+        A passionate developer with a love for clean code and innovative solutions. I specialize in building scalable web applications and have worked with Fortune 500 companies to deliver high-impact software solutions.
+      </p>
+    </motion.div>
+
+    {/* Medium Item */}
+    <motion.div
+      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h3 className="text-xl font-semibold mb-4">Tech Stack</h3>
+      <div className="flex space-x-4">
+        <FaReact className="text-3xl text-blue-400" />
+        <SiNextdotjs className="text-3xl text-white" />
+        <SiTypescript className="text-3xl text-blue-500" />
+        <FaNode className="text-3xl text-green-500" />
+      </div>
+    </motion.div>
+
+    {/* Small Item */}
+    <motion.div
+      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h3 className="text-xl font-semibold mb-4">Contact</h3>
+      <p className="text-gray-400">Email: john.anderson@example.com</p>
+    </motion.div>
+
+    {/* Medium Item */}
+    <motion.div
+      className="bento-item bg-gray-800 col-span-6 md:col-span-4 p-6 rounded-lg shadow-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h3 className="text-xl font-semibold mb-4">Experience</h3>
+      <p className="text-gray-300">
+        8+ Years Experience | 50+ Projects Completed | 30+ Happy Clients
+      </p>
+    </motion.div>
+
+    {/* Small Item */}
+    <motion.div
+      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
+      whileHover={{ scale: 1.02 }}
+    >
+      <h3 className="text-xl font-semibold mb-4">Achievements</h3>
+      <ul className="list-disc pl-5 text-gray-300">
+        <li>AWS Certified Solutions Architect</li>
+        <li>Top 1% Stack Overflow</li>
+      </ul>
+    </motion.div>
+  </div>
+</section>
+
+
+
 
         <section id="experience" className="py-20 px-4 md:px-20">
           <h2 className="text-4xl font-bold mb-10 text-center">Work Experience</h2>
