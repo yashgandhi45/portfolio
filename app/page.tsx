@@ -509,56 +509,30 @@ export default function Home() {
         </section>
 
         <section id="contact" className="py-20 px-4 md:px-20">
-          <h2 className="text-4xl font-bold mb-10 text-center">Contact Me</h2>
-          <div className="max-w-md mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <input
-                    type="text"
-                    name="user_name"
-                    className="w-full px-4 py-2 rounded-lg bg-white bg-opacity-10 border border-gray-600 focus:border-blue-500 focus:outline-none"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    name="user_email"
-                    className="w-full px-4 py-2 rounded-lg bg-white bg-opacity-10 border border-gray-600 focus:border-blue-500 focus:outline-none"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-lg bg-white bg-opacity-10 border border-gray-600 focus:border-blue-500 focus:outline-none"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors glow"
-                >
-                  Send Message
-                </button>
-              </form>
-              {messageSent && (
-                <p className="mt-4 text-green-500 text-center">
-                  Message sent successfully!
-                </p>
-              )}
-            </motion.div>
-          </div>
-        </section>
+  <h2 className="text-4xl font-bold mb-10 text-center">Contact Me</h2>
+  <div className="max-w-4xl mx-auto">
+    <div className="bg-opacity-10 bg-white p-8 rounded-lg shadow-lg glow">
+      <div className="flex flex-col md:flex-row gap-12 items-center">
+        <div className="flex-1">
+          <h3 className="text-2xl md:text-3xl font-semibold text-gray-100">
+            Let&apos;s create something amazing together
+          </h3>
+          <p className="mt-4 text-gray-300">
+            Ready to bring your next project to life? Let&apos;s connect and discuss how I can help you achieve your goals.
+          </p>
+        </div>
+        <div>
+          <a href="jamesanderson@example.com">
+            <button className="text-gray-100 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all px-12 py-6 rounded-xl border border-gray-700 shadow-md">
+              <span className="font-semibold text-lg">Email Me</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         <section className="py-20 px-4 relative overflow-hidden">
           <h2 className="text-4xl font-bold mb-10 text-center">What People Say</h2>
