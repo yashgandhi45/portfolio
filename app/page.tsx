@@ -17,7 +17,27 @@ export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
   const [messageSent, setMessageSent] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const email = "john.anderson@example.com"; // Replace with your email
   const [isCopied, setIsCopied] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      // Copy the static email to the clipboard
+      await navigator.clipboard.writeText(email); 
+      setIsCopied(true); // Show "Copied!" effect
+      setShowNotification(true); // Show notification
+
+      // Reset button text after 2 seconds
+      setTimeout(() => setIsCopied(false), 2000);
+      // Hide notification after 3 seconds
+      setTimeout(() => setShowNotification(false), 3000); 
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  }
+
 
   const Icons = [
     <FaReact className="text-blue-500 text-4xl" />,       // React
@@ -326,12 +346,59 @@ export default function Home() {
 
     {/* Small Item */}
     <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
+  className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center"
+  whileHover={{ scale: 1.02 }}
+  style={{ position: "relative" }}
+>
+  <h3 className="text-xl font-semibold mb-4 text-center text-white">
+    Do you want to start a project together?
+  </h3>
+
+  <div className="flex flex-col items-center gap-4 mt-4">
+    {/* Button to Copy Email */}
+    <button
+      onClick={handleCopy}
+      style={{
+        padding: "12px 24px",
+        fontSize: "16px",
+        borderRadius: "8px",
+        border: "none",
+        backgroundColor: isCopied ? "#48bb78" : "#4c7dff", // Green when copied, blue otherwise
+        color: "#fff",
+        cursor: "pointer",
+        transition: "background-color 0.3s ease, transform 0.3s ease",
+        boxShadow: isCopied
+          ? "0 4px 12px rgba(72, 187, 120, 0.5)"
+          : "0 4px 12px rgba(76, 125, 255, 0.5)",
+        transform: isCopied ? "scale(1.05)" : "scale(1)",
+      }}
+      aria-label="Copy email"
     >
-      <h3 className="text-xl font-semibold mb-4">Contact</h3>
-      <p className="text-gray-400">Email: john.anderson@example.com</p>
-    </motion.div>
+      {isCopied ? "Copied to Clipboard" : "Copy My Email"}
+    </button>
+
+    {/* Notification inside the bento-item */}
+    {showNotification && (
+      <div
+        style={{
+          bottom: "16px",
+          backgroundColor: "#333",
+          color: "#fff",
+          padding: "8px 16px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          transition: "opacity 0.3s ease-in-out",
+          fontSize: "14px",
+        }}
+      >
+        Email copied to clipboard!
+      </div>
+    )}
+  </div>
+</motion.div>
+
+
+
 
     {/* Medium Item */}
     <motion.div
