@@ -1,13 +1,15 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { animate, motion, useMotionValue, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaReact, FaNode, FaJs, FaPython, FaDocker, FaAws, FaCopy, FaEnvelope } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiNextdotjs } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaReact, FaNode, FaPython, FaCopy, FaEnvelope, FaJs, FaHtml5, FaCss3, FaAws, FaDocker  } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss, SiNextdotjs,   SiMongodb, SiDotnet, SiCsharp, SiAzuredevops, SiMysql  } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import clsx from 'clsx';
+import Card from './Card';
+import useMeasure from "react-use-measure";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -16,6 +18,49 @@ export default function Home() {
   const [messageSent, setMessageSent] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+
+  const Icons = [
+    <FaReact className="text-blue-500 text-4xl" />,       // React
+    <SiNextdotjs className="text-black text-4xl" />,      // Next.js
+    <FaNode className="text-green-500 text-4xl" />,       // Node.js
+    <SiTypescript className="text-blue-600 text-4xl" />,  // TypeScript
+    <FaJs className="text-yellow-500 text-4xl" />,        // JavaScript
+    <FaHtml5 className="text-orange-600 text-4xl" />,     // HTML
+    <FaCss3 className="text-blue-600 text-4xl" />      // CSS
+  ]
+  
+  const Icons1 = [
+    <SiDotnet className="text-purple-600 text-4xl" />,    // .NET Core
+    <SiCsharp className="text-purple-500 text-4xl" />,    // C#
+    <SiMysql className="text-blue-500 text-4xl" />,       // MySQL
+    <SiTailwindcss className="text-teal-400 text-4xl" />, // Tailwind CSS
+    <FaDocker className="text-blue-400 text-4xl" />,      // Docker
+    <FaAws className="text-orange-500 text-4xl" />,       // AWS
+    <SiAzuredevops className="text-blue-600 text-4xl" />  // Azure DevOps
+  ]
+  
+  const xTranslation1 = useMotionValue(0);
+  const xTranslation2 = useMotionValue(0);
+
+  useEffect(() => {
+    const controls1 = animate(xTranslation1, [-100, 0], {
+      ease: "linear",
+      duration: 30,
+      repeat: Infinity,
+    });
+
+    const controls2 = animate(xTranslation2, [0, -100], {
+      ease: "linear",
+      duration: 30,
+      repeat: Infinity,
+    });
+
+    return () => {
+      controls1.stop();
+      controls2.stop();
+    };
+  }, [xTranslation1, xTranslation2]);
+
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -241,20 +286,43 @@ export default function Home() {
         A passionate developer with a love for clean code and innovative solutions. I specialize in building scalable web applications and have worked with Fortune 500 companies to deliver high-impact software solutions.
       </p>
     </motion.div>
+{/* Medium Item */}
+<motion.div
+  className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
+  whileHover={{ scale: 1.02 }}
+>
+  <h3 className="text-xl font-semibold mb-4">My Tech Stack</h3>
 
-    {/* Medium Item */}
+  {/* First Row */}
+  <div className="overflow-hidden mb-4">
     <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
+      className="flex gap-8" // Increased gap between icons
+      style={{ x: xTranslation1 }}
     >
-      <h3 className="text-xl font-semibold mb-4">Tech Stack</h3>
-      <div className="flex space-x-4">
-        <FaReact className="text-3xl text-blue-400" />
-        <SiNextdotjs className="text-3xl text-white" />
-        <SiTypescript className="text-3xl text-blue-500" />
-        <FaNode className="text-3xl text-green-500" />
-      </div>
+      {[...Icons, ...Icons].map((Icon, idx) => (
+        <div key={`row1-${idx}`} className="text-4xl">
+          {Icon}
+        </div>
+      ))}
     </motion.div>
+  </div>
+
+  {/* Second Row */}
+  <div className="overflow-hidden">
+    <motion.div
+      className="flex gap-8" // Matching gap for second row
+      style={{ x: xTranslation2 }}
+    >
+      {[...Icons1, ...Icons1].map((Icon, idx) => (
+        <div key={`row2-${idx}`} className="text-4xl">
+          {Icon}
+        </div>
+      ))}
+    </motion.div>
+  </div>
+</motion.div>
+
+
 
     {/* Small Item */}
     <motion.div
