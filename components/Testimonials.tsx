@@ -7,7 +7,7 @@ const Testimonials: React.FC = () => {
           name: "Sarah Johnson",
           role: "CEO at TechCorp",
           image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-          text: "Yash&apos;s work on our platform exceeded all expectations. His attention to detail and technical expertise are outstanding."
+          text: "Yash's work on our platform exceeded all expectations. His attention to detail and technical expertise are outstanding."
         },
         {
           name: "Michael Chen",

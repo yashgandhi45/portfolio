@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
       </div>
       
       <div>
-        <h4 className="text-lg font-semibold mb-4">Let's Talk</h4>
+        <h4 className="text-lg font-semibold mb-4">Let&apos;s Talk</h4>
         <ul className="space-y-2">
           <li className="text-gray-400">
           <span className="block">If you have any questions or ideas, don&apos;t hesitate to reach out</span>

@@ -9,7 +9,7 @@ const ContactMe: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
             <h3 className="text-2xl md:text-3xl font-semibold text-gray-100">
-              Let&apos;s create something amazing together
+            Let&apos;s create something amazing together
             </h3>
             <p className="mt-4 text-gray-300">
               Ready to bring your next project to life? Let&apos;s connect and discuss how I can help you achieve your goals.
