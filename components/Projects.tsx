@@ -5,25 +5,25 @@ const projects = [
   {
     title: "AI-Powered Analytics Platform",
     description: "Built a real-time analytics platform using React, Node.js, and TensorFlow, processing over 1M data points daily.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    image: "/Aianalytics.jpeg",
     tags: ["React", "Node.js", "AI"],
   },
   {
     title: "Cloud Infrastructure Manager",
     description: "Developed a cloud management tool that reduced infrastructure costs by 35% for enterprise clients.",
-    image: "https://images.unsplash.com/photo-1555421689-491a97ff2040",
+    image: "/Cloud.jpeg",
     tags: ["AWS", "TypeScript", "Docker"],
   },
   {
     title: "E-Commerce Recommendation System",
     description: "Implemented a machine learning-based recommendation engine that increased sales conversion by 20%.",
-    image: "https://images.unsplash.com/photo-1542744095-291d1f67b221",
+    image: "/EcommerceRecommendation.jpeg",
     tags: ["Python", "Flask", "ML"],
   },
   {
     title: "Real-Time Chat Application",
     description: "Built a secure, real-time chat application with WebSockets and end-to-end encryption.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+    image: "/Realtimechat.jpeg",
     tags: ["React", "Socket.io", "Firebase"],
   },
 ];
