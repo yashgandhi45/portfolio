@@ -17,7 +17,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
     show: { opacity: 1, scale: 1 }
   };
 
-    const email = "yashgandhi4505@gmail.com"; // Replace with your email
+    const email = "yashgandhi.dev@gmail.com"; // Replace with your email
     const [isCopied, setIsCopied] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
   

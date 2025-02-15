@@ -16,7 +16,7 @@ const ContactMe: React.FC = () => {
             </p>
           </div>
           <div>
-            <a href="mailto:yashgandhi4505@gmail.com">
+            <a href="mailto:yashgandhi.dev@gmail.com">
               <button className="text-gray-100 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all px-12 py-6 rounded-xl border border-gray-700 shadow-md">
                 <span className="font-semibold text-lg">Email Me</span>
               </button>

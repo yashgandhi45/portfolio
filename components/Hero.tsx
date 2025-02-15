@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
               <FaTwitter />
             </a>
             <a
-              href="mailto:yashgandhi4505@gmail.com"
+              href="mailto:yashgandhi.dev@gmail.com"
               className="social-icon text-3xl hover:text-pink-400"
             >
               <FaEnvelope />
