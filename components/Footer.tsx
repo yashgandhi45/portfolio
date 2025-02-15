@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="col-span-2">
         <h3 className="text-2xl font-bold mb-4">Yash Gandhi</h3>
         <p className="text-gray-400 mb-6">
-          Building digital experiences that make a difference. Let's create something amazing together.
+          Building digital experiences that make a difference. Let&apos;s create something amazing together.
         </p>
         <div className="flex gap-4">
           <a
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
         <h4 className="text-lg font-semibold mb-4">Let's Talk</h4>
         <ul className="space-y-2">
           <li className="text-gray-400">
-          <span className="block">If you have any questions or ideas, don’t hesitate to reach out</span>
+          <span className="block">If you have any questions or ideas, don&apos;t hesitate to reach out</span>
           </li>
           <li className="text-gray-400">
             <span className="block">Location:</span>
