@@ -15,12 +15,13 @@ import WorkExperience from '@/components/WorkExperience'
 import Footer from '@/components/Footer';
 import ContactMe from '@/components/ContactMe';
 import Testimonials from '@/components/Testimonials';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
   const formRef = useRef<HTMLFormElement>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   const Icons = [
     <FaReact className="text-blue-500 text-4xl" />,       // React
@@ -63,55 +64,10 @@ export default function Home() {
     threshold: 0.1,
   });
 
-  const navItems = ['Home', 'Experience', 'Projects', 'Skills', 'Contact'];
 
   return (
     <>
-      <nav className="fixed w-full z-50 nav-blur">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
-              <span className="text-xl font-bold">Portfolio</span>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-300 hover:text-white"
-              >
-                {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+    <Navbar/>
 
       <main className="min-h-screen space-dots">
         <motion.section
