@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaReact, FaNode, FaPython, FaCopy, FaEnvelope, FaJs, FaHtml5, FaCss3, FaAws, FaDocker  } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiNextdotjs,   SiMongodb, SiDotnet, SiCsharp, SiAzuredevops, SiMysql  } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope  } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
       const { scrollY } = useScroll();
@@ -22,7 +21,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         <Image
-          src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5"
+          src="/DSC_3543.jpg"
           alt="Profile"
           width={256}
           height={256}
@@ -37,10 +36,10 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-500">
-            John Anderson
+            Yash Gandhi
           </h1>
           <h2 className="text-xl md:text-2xl text-gray-300 mb-6">
-            Senior Full Stack Developer
+            Full Stack Developer
           </h2>
           <p className="text-gray-300 mb-8 text-lg">
             Crafting exceptional digital experiences with modern technologies.
@@ -49,7 +48,7 @@ const Hero: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
             <a
-              href="https://github.com"
+              href="https://github.com/yashgandhi45"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon text-3xl hover:text-cyan-400"
@@ -57,7 +56,7 @@ const Hero: React.FC = () => {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/yashgandhi45"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon text-3xl hover:text-blue-400"
@@ -73,7 +72,7 @@ const Hero: React.FC = () => {
               <FaTwitter />
             </a>
             <a
-              href="mailto:john.anderson@example.com"
+              href="mailto:yashgandhi4505@gmail.com"
               className="social-icon text-3xl hover:text-pink-400"
             >
               <FaEnvelope />

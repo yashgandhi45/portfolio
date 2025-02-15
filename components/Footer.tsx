@@ -5,13 +5,13 @@ const Footer: React.FC = () => {
     <footer className="footer-gradient py-20 px-4 md:px-20">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-2">
-        <h3 className="text-2xl font-bold mb-4">John Anderson</h3>
+        <h3 className="text-2xl font-bold mb-4">Yash Gandhi</h3>
         <p className="text-gray-400 mb-6">
           Building digital experiences that make a difference. Let's create something amazing together.
         </p>
         <div className="flex gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/yashgandhi45"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon text-2xl hover:text-purple-400 transition-colors"
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/yashgandhi45"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon text-2xl hover:text-blue-400 transition-colors"
@@ -60,18 +60,18 @@ const Footer: React.FC = () => {
         <ul className="space-y-2">
           <li className="text-gray-400">
             <span className="block">Email:</span>
-            john.anderson@example.com
+            yashgandhi4505@gmail.com
           </li>
           <li className="text-gray-400">
             <span className="block">Location:</span>
-            San Francisco, CA
+            Pune, India
           </li>
         </ul>
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800">
       <p className="text-center text-gray-500">
-        © {new Date().getFullYear()} John Anderson. All rights reserved.
+        © {new Date().getFullYear()} Yash Gandhi. All rights reserved.
       </p>
     </div>
   </footer>
