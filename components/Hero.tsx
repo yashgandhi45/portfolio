@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         <Image
-          src="/DSC_3543.jpg"
+          src="/DSC_3543.JPG"
           alt="Profile"
           width={256}
           height={256}
