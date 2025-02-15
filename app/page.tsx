@@ -21,25 +21,25 @@ import Hero from '@/components/Hero';
 export default function Home() {
 
   const RowIcons1 = [
-    <FaReact className="text-blue-500 text-4xl" />,       // React
-    <SiNextdotjs className="text-black text-4xl" />,      // Next.js
-    <FaNode className="text-green-500 text-4xl" />,       // Node.js
-    <SiTypescript className="text-blue-600 text-4xl" />,  // TypeScript
-    <FaJs className="text-yellow-500 text-4xl" />,       // JavaScript
-    <FaPython className="text-green-500 text-4xl" />,    //Python
-    <FaHtml5 className="text-orange-600 text-4xl" />,     // HTML
-    <FaCss3 className="text-blue-600 text-4xl" />      // CSS
+    <FaReact className="text-blue-500 text-4xl" key="react" />,       // React
+    <SiNextdotjs className="text-black text-4xl" key="next" />,      // Next.js
+    <FaNode className="text-green-500 text-4xl" key="node" />,       // Node.js
+    <SiTypescript className="text-blue-600 text-4xl" key="typescript" />,  // TypeScript
+    <FaJs className="text-yellow-500 text-4xl" key="js" />,       // JavaScript
+    <FaPython className="text-green-500 text-4xl" key="python" />,    // Python
+    <FaHtml5 className="text-orange-600 text-4xl" key="html" />,     // HTML
+    <FaCss3 className="text-blue-600 text-4xl" key="css" />      // CSS
   ]
   
   const RowIcons2 = [
-    <SiDotnet className="text-purple-600 text-4xl" />,    // .NET Core
-    <SiCsharp className="text-purple-500 text-4xl" />,    // C#
-    <SiMysql className="text-blue-500 text-4xl" />,       // MySQL
-    <SiMongodb className="text-green-600 text-4xl" />,       // MongoDB
-    <SiTailwindcss className="text-teal-400 text-4xl" />, // Tailwind CSS
-    <FaDocker className="text-blue-400 text-4xl" />,      // Docker
-    <FaAws className="text-orange-500 text-4xl" />,       // AWS
-    <SiAzuredevops className="text-blue-600 text-4xl" />  // Azure DevOps
+    <SiDotnet className="text-purple-600 text-4xl" key="dotnet" />,    // .NET Core
+    <SiCsharp className="text-purple-500 text-4xl" key="csharp" />,    // C#
+    <SiMysql className="text-blue-500 text-4xl" key="mysql" />,       // MySQL
+    <SiMongodb className="text-green-600 text-4xl" key="mongodb" />,       // MongoDB
+    <SiTailwindcss className="text-teal-400 text-4xl" key="tailwind" />, // Tailwind CSS
+    <FaDocker className="text-blue-400 text-4xl" key="docker" />,      // Docker
+    <FaAws className="text-orange-500 text-4xl" key="aws" />,       // AWS
+    <SiAzuredevops className="text-blue-600 text-4xl" key="azure" />  // Azure DevOps
   ]
   
   useEffect(() => {
