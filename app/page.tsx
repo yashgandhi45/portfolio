@@ -5,38 +5,24 @@ import { useRef, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaReact, FaNode, FaPython, FaCopy, FaEnvelope, FaJs, FaHtml5, FaCss3, FaAws, FaDocker  } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiNextdotjs,   SiMongodb, SiDotnet, SiCsharp, SiAzuredevops, SiMysql  } from 'react-icons/si';
-import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import clsx from 'clsx';
 import Card from './Card';
 import useMeasure from "react-use-measure";
+import Projects from '@/components/Projects';
+import BentoGrid from '@/components/BentoGrid'
+import WorkExperience from '@/components/WorkExperience'
+import Footer from '@/components/Footer';
+import ContactMe from '@/components/ContactMe';
 
 export default function Home() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
   const formRef = useRef<HTMLFormElement>(null);
-  const [messageSent, setMessageSent] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const email = "john.anderson@example.com"; // Replace with your email
-  const [isCopied, setIsCopied] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
 
-  const handleCopy = async () => {
-    try {
-      // Copy the static email to the clipboard
-      await navigator.clipboard.writeText(email); 
-      setIsCopied(true); // Show "Copied!" effect
-      setShowNotification(true); // Show notification
-
-      // Reset button text after 2 seconds
-      setTimeout(() => setIsCopied(false), 2000);
-      // Hide notification after 3 seconds
-      setTimeout(() => setShowNotification(false), 3000); 
-    } catch (err) {
-      console.error("Failed to copy email:", err);
-    }
-  }
 
 
   const Icons = [
@@ -59,27 +45,7 @@ export default function Home() {
     <SiAzuredevops className="text-blue-600 text-4xl" />  // Azure DevOps
   ]
   
-  const xTranslation1 = useMotionValue(0);
-  const xTranslation2 = useMotionValue(0);
 
-  useEffect(() => {
-    const controls1 = animate(xTranslation1, [-100, 0], {
-      ease: "linear",
-      duration: 30,
-      repeat: Infinity,
-    });
-
-    const controls2 = animate(xTranslation2, [0, -100], {
-      ease: "linear",
-      duration: 30,
-      repeat: Infinity,
-    });
-
-    return () => {
-      controls1.stop();
-      controls2.stop();
-    };
-  }, [xTranslation1, xTranslation2]);
 
 
   useEffect(() => {
@@ -98,28 +64,6 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText('john.anderson@example.com');
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (formRef.current) {
-      emailjs.sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        formRef.current,
-        'YOUR_PUBLIC_KEY'
-      )
-      .then(() => {
-        setMessageSent(true);
-        if (formRef.current) formRef.current.reset();
-      });
-    }
-  };
 
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
@@ -290,248 +234,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black"></div>
         </motion.section>
 
-        <section id="skills" className="py-20 px-4 md:px-20">
-  <h2 className="text-4xl font-bold mb-10 text-center">About & Skills</h2>
-  <div
-    className="bento-grid max-w-6xl mx-auto grid grid-cols-6 gap-6"
-    style={{ gridAutoRows: 'minmax(150px, auto)' }}
-  >
-    {/* Large Item */}
-    <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-4 md:row-span-2 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
-    >
-      <h3 className="text-2xl font-semibold mb-4">About Me</h3>
-      <p className="text-gray-300">
-        A passionate developer with a love for clean code and innovative solutions. I specialize in building scalable web applications and have worked with Fortune 500 companies to deliver high-impact software solutions.
-      </p>
-    </motion.div>
-{/* Medium Item */}
-<motion.div
-  className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
-  whileHover={{ scale: 1.02 }}
->
-  <h3 className="text-xl font-semibold mb-4">My Tech Stack</h3>
-
-  {/* First Row */}
-  <div className="overflow-hidden mb-4">
-    <motion.div
-      className="flex gap-8" // Increased gap between icons
-      style={{ x: xTranslation1 }}
-    >
-      {[...Icons, ...Icons].map((Icon, idx) => (
-        <div key={`row1-${idx}`} className="text-4xl">
-          {Icon}
-        </div>
-      ))}
-    </motion.div>
-  </div>
-
-  {/* Second Row */}
-  <div className="overflow-hidden">
-    <motion.div
-      className="flex gap-8" // Matching gap for second row
-      style={{ x: xTranslation2 }}
-    >
-      {[...Icons1, ...Icons1].map((Icon, idx) => (
-        <div key={`row2-${idx}`} className="text-4xl">
-          {Icon}
-        </div>
-      ))}
-    </motion.div>
-  </div>
-</motion.div>
-
-
-
-    {/* Small Item */}
-    <motion.div
-  className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center"
-  whileHover={{ scale: 1.02 }}
-  style={{ position: "relative" }}
->
-  <h3 className="text-xl font-semibold mb-4 text-center text-white">
-    Do you want to start a project together?
-  </h3>
-
-  <div className="flex flex-col items-center gap-4 mt-4">
-    {/* Button to Copy Email */}
-    <button
-      onClick={handleCopy}
-      style={{
-        padding: "12px 24px",
-        fontSize: "16px",
-        borderRadius: "8px",
-        border: "none",
-        backgroundColor: isCopied ? "#48bb78" : "#4c7dff", // Green when copied, blue otherwise
-        color: "#fff",
-        cursor: "pointer",
-        transition: "background-color 0.3s ease, transform 0.3s ease",
-        boxShadow: isCopied
-          ? "0 4px 12px rgba(72, 187, 120, 0.5)"
-          : "0 4px 12px rgba(76, 125, 255, 0.5)",
-        transform: isCopied ? "scale(1.05)" : "scale(1)",
-      }}
-      aria-label="Copy email"
-    >
-      {isCopied ? "Copied to Clipboard" : "Copy My Email"}
-    </button>
-
-    {/* Notification inside the bento-item */}
-    {showNotification && (
-      <div
-        style={{
-          bottom: "16px",
-          backgroundColor: "#333",
-          color: "#fff",
-          padding: "8px 16px",
-          borderRadius: "8px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          transition: "opacity 0.3s ease-in-out",
-          fontSize: "14px",
-        }}
-      >
-        Email copied to clipboard!
-      </div>
-    )}
-  </div>
-</motion.div>
+        <BentoGrid Icons={Icons} Icons1={Icons1} />
 
 
 
 
-    {/* Medium Item */}
-    <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-4 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
-    >
-      <h3 className="text-xl font-semibold mb-4">Experience</h3>
-      <p className="text-gray-300">
-        8+ Years Experience | 50+ Projects Completed | 30+ Happy Clients
-      </p>
-    </motion.div>
-
-    {/* Small Item */}
-    <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
-    >
-      <h3 className="text-xl font-semibold mb-4">Achievements</h3>
-      <ul className="list-disc pl-5 text-gray-300">
-        <li>AWS Certified Solutions Architect</li>
-        <li>Top 1% Stack Overflow</li>
-      </ul>
-    </motion.div>
-  </div>
-</section>
 
 
-
-
-        <section id="experience" className="py-20 px-4 md:px-20">
-          <h2 className="text-4xl font-bold mb-10 text-center">Work Experience</h2>
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <motion.div
-              className="bg-opacity-10 bg-white p-6 rounded-lg glow"
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="text-2xl font-semibold">Senior Developer at Google</h3>
-              <p className="text-gray-400">2020 - Present</p>
-              <p className="mt-4">Led development of multiple full-stack applications, including Google Cloud Platform features and internal tools. Managed a team of 5 developers and improved system performance by 40%.</p>
-            </motion.div>
-            <motion.div
-              className="bg-opacity-10 bg-white p-6 rounded-lg glow"
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h3 className="text-2xl font-semibold">Tech Lead at Microsoft</h3>
-              <p className="text-gray-400">2018 - 2020</p>
-              <p className="mt-4">Spearheaded the development of Azure DevOps features, implementing CI/CD pipelines and improving deployment efficiency by 60%.</p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="projects" className="py-20 px-4 md:px-20">
-          <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <motion.div
-              className="bg-opacity-10 bg-white p-6 rounded-lg glow project-card overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-            >
-              <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                  alt="Project 1"
-                  layout="fill"
-                  objectFit="cover"
-                  className="project-image"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold">AI-Powered Analytics Platform</h3>
-              <p className="mt-4">Built a real-time analytics platform using React, Node.js, and TensorFlow, processing over 1M data points daily.</p>
-              <div className="mt-4 flex gap-2">
-                <span className="px-3 py-1 bg-blue-500 rounded-full text-sm">React</span>
-                <span className="px-3 py-1 bg-green-500 rounded-full text-sm">Node.js</span>
-                <span className="px-3 py-1 bg-purple-500 rounded-full text-sm">AI</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="bg-opacity-10 bg-white p-6 rounded-lg glow project-card overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1555421689-491a97ff2040"
-                  alt="Project 2"
-                  layout="fill"
-                  objectFit="cover"
-                  className="project-image"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold">Cloud Infrastructure Manager</h3>
-              <p className="mt-4">Developed a cloud management tool that reduced infrastructure costs by 35% for enterprise clients.</p>
-              <div className="mt-4 flex gap-2">
-                <span className="px-3 py-1 bg-orange-500 rounded-full text-sm">AWS</span>
-                <span className="px-3 py-1 bg-blue-500 rounded-full text-sm">TypeScript</span>
-                <span className="px-3 py-1 bg-red-500 rounded-full text-sm">Docker</span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="contact" className="py-20 px-4 md:px-20">
-  <h2 className="text-4xl font-bold mb-10 text-center">Contact Me</h2>
-  <div className="max-w-4xl mx-auto">
-    <div className="bg-opacity-10 bg-white p-8 rounded-lg shadow-lg glow">
-      <div className="flex flex-col md:flex-row gap-12 items-center">
-        <div className="flex-1">
-          <h3 className="text-2xl md:text-3xl font-semibold text-gray-100">
-            Let&apos;s create something amazing together
-          </h3>
-          <p className="mt-4 text-gray-300">
-            Ready to bring your next project to life? Let&apos;s connect and discuss how I can help you achieve your goals.
-          </p>
-        </div>
-        <div>
-          <a href="jamesanderson@example.com">
-            <button className="text-gray-100 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all px-12 py-6 rounded-xl border border-gray-700 shadow-md">
-              <span className="font-semibold text-lg">Email Me</span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <WorkExperience/>
+        <Projects/>
+        <ContactMe/>
 
 
         <section className="py-20 px-4 relative overflow-hidden">
@@ -565,79 +277,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="footer-gradient py-20 px-4 md:px-20">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="col-span-2">
-              <h3 className="text-2xl font-bold mb-4">John Anderson</h3>
-              <p className="text-gray-400 mb-6">
-                Building digital experiences that make a difference. Let's create something amazing together.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon text-2xl hover:text-purple-400 transition-colors"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon text-2xl hover:text-blue-400 transition-colors"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon text-2xl hover:text-sky-400 transition-colors"
-                >
-                  <FaTwitter />
-                </a>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#home" className="text-gray-400 hover:text-white transition-colors">Home</a>
-                </li>
-                <li>
-                  <a href="#experience" className="text-gray-400 hover:text-white transition-colors">Experience</a>
-                </li>
-                <li>
-                  <a href="#projects" className="text-gray-400 hover:text-white transition-colors">Projects</a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a>
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-gray-400">
-                  <span className="block">Email:</span>
-                  john.anderson@example.com
-                </li>
-                <li className="text-gray-400">
-                  <span className="block">Location:</span>
-                  San Francisco, CA
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800">
-            <p className="text-center text-gray-500">
-              © {new Date().getFullYear()} John Anderson. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        <Footer/>
       </main>
     </>
   );
