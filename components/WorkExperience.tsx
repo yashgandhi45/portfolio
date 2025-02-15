@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 const WorkExperience: React.FC = () => {
   const workExperiences = [
     {
-      title: 'Senior Developer',
-      company: 'Google',
-      duration: '2020 - Present',
-      description: 'Led development of multiple full-stack applications, including Google Cloud Platform features and internal tools. Managed a team of 5 developers and improved system performance by 40%.',
+      title: 'Software Developer',
+      company: 'Fiserv',
+      duration: 'Jan 2024 - Nov 2024',
+      description: 'Worked on BillMatrix, a bill payment service providing secure payment options, to implement Voltage, an encryption solution securing PCI data in multiple applications',
       delay: 0, // Optional delay for animation
     },
-    {
-      title: 'Tech Lead',
-      company: 'Microsoft',
-      duration: '2018 - 2020',
-      description: 'Spearheaded the development of Azure DevOps features, implementing CI/CD pipelines and improving deployment efficiency by 60%.',
-      delay: 0.2, // Optional delay for animation
-    },
+    // {
+    //   title: 'Tech Lead',
+    //   company: 'Microsoft',
+    //   duration: '2018 - 2020',
+    //   description: 'Spearheaded the development of Azure DevOps features, implementing CI/CD pipelines and improving deployment efficiency by 60%.',
+    //   delay: 0.2, // Optional delay for animation
+    // },
   ];
 
   return (

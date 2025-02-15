@@ -8,7 +8,16 @@ type BentoGridProps = {
 
 const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
 
-    const email = "john.anderson@example.com"; // Replace with your email
+  const interests = [
+    "Web3", "AI/ML", "System Design", "Open Source", "DevOps"
+  ];
+
+  const item = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: { opacity: 1, scale: 1 }
+  };
+
+    const email = "yashgandhi4505@gmail.com"; // Replace with your email
     const [isCopied, setIsCopied] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
   
@@ -51,7 +60,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
     }, [xTranslation1, xTranslation2]);
 
   return (
-        <section id="skills" className="py-20 px-4 md:px-20">
+  <section id="skills" className="py-20 px-4 md:px-20">
   <h2 className="text-4xl font-bold mb-10 text-center">About & Skills</h2>
   <div
     className="bento-grid max-w-6xl mx-auto grid grid-cols-6 gap-6"
@@ -65,6 +74,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
       <h3 className="text-2xl font-semibold mb-4">About Me</h3>
       <p className="text-gray-300">
         A passionate developer with a love for clean code and innovative solutions. I specialize in building scalable web applications and have worked with Fortune 500 companies to deliver high-impact software solutions.
+        Driven by a passion for technology and innovation, I thrive in dynamic environments, continuously learning and leveraging modern tools to solve complex problems.
       </p>
     </motion.div>
 {/* Medium Item */}
@@ -159,26 +169,38 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
 </motion.div>
 
 
-    {/* Medium Item */}
-    <motion.div
-      className="bento-item bg-gray-800 col-span-6 md:col-span-4 p-6 rounded-lg shadow-lg"
-      whileHover={{ scale: 1.02 }}
-    >
-      <h3 className="text-xl font-semibold mb-4">Experience</h3>
-      <p className="text-gray-300">
-        8+ Years Experience | 50+ Projects Completed | 30+ Happy Clients
-      </p>
-    </motion.div>
+<motion.div
+  className="bento-item bg-gray-800 col-span-6 md:col-span-4 p-6 rounded-lg shadow-lg"
+  whileHover={{ scale: 1.02 }}
+>
+  <h3 className="text-xl font-semibold mb-4">Interests</h3>
+  <p className="text-gray-300"></p>
+  <div className="flex flex-wrap gap-4"> {/* Use flex and gap for controlled spacing */}
+    {interests.map((interest, index) => (
+      <motion.span
+        key={index}
+        variants={item}
+        className="px-3 py-1 bg-zinc-800/50 backdrop-blur-sm rounded-full text-sm text-zinc-300 border border-zinc-700/50"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {interest}
+      </motion.span>
+    ))}
+  </div>
+</motion.div>
+
+
 
     {/* Small Item */}
     <motion.div
       className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
       whileHover={{ scale: 1.02 }}
     >
-      <h3 className="text-xl font-semibold mb-4">Achievements</h3>
+      <h3 className="text-xl font-semibold mb-4">Creative Vision</h3>
       <ul className="list-disc pl-5 text-gray-300">
-        <li>AWS Certified Solutions Architect</li>
-        <li>Top 1% Stack Overflow</li>
+        <li>Transforming ideas into elegant digital experiences</li>
+        {/* <li>Top 1% Stack Overflow</li> */}
       </ul>
     </motion.div>
   </div>
