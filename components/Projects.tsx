@@ -3,29 +3,19 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "AI-Powered Analytics Platform",
-    description: "Built a real-time analytics platform using React, Node.js, and TensorFlow, processing over 1M data points daily.",
-    image: "/Aianalytics.jpeg",
-    tags: ["React", "Node.js", "AI"],
+    title: "Visionary",
+    description: "An interactive Miro-like whiteboard enabling real-time brainstorming and smooth collaboration",
+    image: "/Visionarythumbnail.png", 
+    tags: ["Next.js", "Clerk", "Convex"],
+    url: "https://visionary-snowy.vercel.app", 
   },
   {
-    title: "Cloud Infrastructure Manager",
-    description: "Developed a cloud management tool that reduced infrastructure costs by 35% for enterprise clients.",
-    image: "/Cloud.jpeg",
-    tags: ["AWS", "TypeScript", "Docker"],
-  },
-  {
-    title: "E-Commerce Recommendation System",
-    description: "Implemented a machine learning-based recommendation engine that increased sales conversion by 20%.",
-    image: "/EcommerceRecommendation.jpeg",
-    tags: ["Python", "Flask", "ML"],
-  },
-  {
-    title: "Real-Time Chat Application",
-    description: "Built a secure, real-time chat application with WebSockets and end-to-end encryption.",
-    image: "/Realtimechat.jpeg",
-    tags: ["React", "Socket.io", "Firebase"],
-  },
+    title: "BlogPost",
+    description: "A feature-rich blogging platform with tagging and seamless navigation for an enhanced reading experience",
+    image: "/BlogPostThumbnail.png", 
+    tags: ["ASP.NET Core", "C#", "Entity Framework Core"],
+    url: "https://github.com/yashgandhi45/blogpost", 
+  }
 ];
 
 export default function Projects() {
@@ -36,13 +26,17 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-opacity-10 bg-white p-6 rounded-lg glow project-card overflow-hidden"
+            className="bg-opacity-10 bg-white p-6 rounded-lg glow project-card overflow-hidden relative"
             whileHover={{ scale: 1.02 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: index * 0.2 }}
           >
-            <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+            <motion.a
+              href={project.url} 
+              className="relative h-48 mb-4 overflow-hidden rounded-lg block"
+              whileHover={{ scale: 1.05 }}
+            >
               <Image
                 src={project.image}
                 alt={project.title}
@@ -50,9 +44,23 @@ export default function Projects() {
                 objectFit="cover"
                 className="project-image"
               />
-            </div>
+
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-50 transition-all duration-300"
+                whileHover={{ opacity: 1 }}
+              >
+                <motion.span
+                  className="text-white text-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ opacity: 1 }}
+                >
+                  Visit Live Site
+                </motion.span>
+              </motion.div>
+            </motion.a>
+
             <h3 className="text-2xl font-semibold">{project.title}</h3>
             <p className="mt-4">{project.description}</p>
+
             <div className="mt-4 flex gap-2 flex-wrap">
               {project.tags.map((tag, tagIndex) => (
                 <span key={tagIndex} className="px-3 py-1 bg-blue-500 rounded-full text-sm">

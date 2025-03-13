@@ -17,20 +17,20 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
     show: { opacity: 1, scale: 1 }
   };
 
-    const email = "yashgandhi.dev@gmail.com"; // Replace with your email
+    const email = "yashgandhi.dev@gmail.com"; 
     const [isCopied, setIsCopied] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
   
     const handleCopy = async () => {
       try {
-        // Copy the static email to the clipboard
+    
         await navigator.clipboard.writeText(email); 
-        setIsCopied(true); // Show "Copied!" effect
-        setShowNotification(true); // Show notification
+        setIsCopied(true); 
+        setShowNotification(true);
   
-        // Reset button text after 2 seconds
+     
         setTimeout(() => setIsCopied(false), 2000);
-        // Hide notification after 3 seconds
+
         setTimeout(() => setShowNotification(false), 3000); 
       } catch (err) {
         console.error("Failed to copy email:", err);
@@ -66,28 +66,30 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
     className="bento-grid max-w-6xl mx-auto grid grid-cols-6 gap-6"
     style={{ gridAutoRows: 'minmax(150px, auto)' }}
   >
-    {/* Large Item */}
+ 
     <motion.div
       className="bento-item bg-gray-800 col-span-6 md:col-span-4 md:row-span-2 p-6 rounded-lg shadow-lg"
       whileHover={{ scale: 1.02 }}
     >
       <h3 className="text-2xl font-semibold mb-4">About Me</h3>
       <p className="text-gray-300">
-        A passionate developer with a love for clean code and innovative solutions. I specialize in building scalable web applications and have worked with Fortune 500 companies to deliver high-impact software solutions.
-        Driven by a passion for technology and innovation, I thrive in dynamic environments, continuously learning and leveraging modern tools to solve complex problems.
+      Full-stack Developer with expertise in building secure, scalable web applications and hands-on experience across all stages of the software development lifecycle.
+      <br/>
+      <br/>
+      Driven by a passion for technology and innovation, I thrive in dynamic environments, continuously learning and leveraging modern tools to solve complex problems.
       </p>
     </motion.div>
-{/* Medium Item */}
+
 <motion.div
   className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
   whileHover={{ scale: 1.02 }}
 >
   <h3 className="text-xl font-semibold mb-4">My Tech Stack</h3>
 
-  {/* First Row */}
+
   <div className="overflow-hidden mb-4">
     <motion.div
-      className="flex gap-8" // Increased gap between icons
+      className="flex gap-8" 
       style={{ x: xTranslation1 }}
     >
       {[...Icons, ...Icons].map((Icon, idx) => (
@@ -98,10 +100,10 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
     </motion.div>
   </div>
 
-  {/* Second Row */}
+
   <div className="overflow-hidden">
     <motion.div
-      className="flex gap-8" // Matching gap for second row
+      className="flex gap-8" 
       style={{ x: xTranslation2 }}
     >
       {[...Icons1, ...Icons1].map((Icon, idx) => (
@@ -115,7 +117,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
 
 
 
-    {/* Small Item */}
+
     <motion.div
   className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center"
   whileHover={{ scale: 1.02 }}
@@ -126,7 +128,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
   </h3>
 
   <div className="flex flex-col items-center gap-4 mt-4">
-    {/* Button to Copy Email */}
+
     <button
       onClick={handleCopy}
       style={{
@@ -134,7 +136,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
         fontSize: "16px",
         borderRadius: "8px",
         border: "none",
-        backgroundColor: isCopied ? "#48bb78" : "#4c7dff", // Green when copied, blue otherwise
+        backgroundColor: isCopied ? "#48bb78" : "#4c7dff", 
         color: "#fff",
         cursor: "pointer",
         transition: "background-color 0.3s ease, transform 0.3s ease",
@@ -148,7 +150,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
       {isCopied ? "Copied to Clipboard" : "Copy My Email"}
     </button>
 
-    {/* Notification inside the bento-item */}
+  
     {showNotification && (
       <div
         style={{
@@ -175,7 +177,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
 >
   <h3 className="text-xl font-semibold mb-4">Interests</h3>
   <p className="text-gray-300"></p>
-  <div className="flex flex-wrap gap-4"> {/* Use flex and gap for controlled spacing */}
+  <div className="flex flex-wrap gap-4"> 
     {interests.map((interest, index) => (
       <motion.span
         key={index}
@@ -190,9 +192,6 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
   </div>
 </motion.div>
 
-
-
-    {/* Small Item */}
     <motion.div
       className="bento-item bg-gray-800 col-span-6 md:col-span-2 p-6 rounded-lg shadow-lg"
       whileHover={{ scale: 1.02 }}
@@ -200,7 +199,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ Icons, Icons1 }) => {
       <h3 className="text-xl font-semibold mb-4">Creative Vision</h3>
       <ul className="list-disc pl-5 text-gray-300">
         <li>Transforming ideas into elegant digital experiences</li>
-        {/* <li>Top 1% Stack Overflow</li> */}
+
       </ul>
     </motion.div>
   </div>

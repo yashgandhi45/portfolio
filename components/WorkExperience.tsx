@@ -6,7 +6,7 @@ const WorkExperience: React.FC = () => {
       title: 'Software Developer',
       company: 'Fiserv',
       duration: 'Jan 2024 - Nov 2024',
-      description: 'Worked on BillMatrix, a bill payment service providing secure payment options, to implement Voltage, an encryption solution securing PCI data in multiple applications',
+      description: 'Worked on BillMatrix, a bill payment service providing secure payment options, to implement Voltage, an encryption solution securing sensitive data in applications',
       delay: 0, // Optional delay for animation
     },
     // {
